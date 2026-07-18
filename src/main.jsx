@@ -4,6 +4,7 @@ import { readingParts } from './data/readingParts'
 import './styles.css'
 
 const STORAGE_KEY = 'part5-studio-progress-v1'
+const THEME_KEY = 'toeic-reading-theme'
 
 function getSetKey(partId, setId) {
   return partId === 'part-5' ? setId : `${partId}:${setId}`
@@ -63,6 +64,7 @@ function getSavedState() {
 }
 
 function App() {
+  const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || 'cute')
   const [selectedPartId, setSelectedPartId] = useState('part-5')
   const [selectedSetId, setSelectedSetId] = useState('set-1')
   const [mode, setMode] = useState('full')
@@ -98,6 +100,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, submitted }))
   }, [answers, submitted])
+
+  useEffect(() => {
+    localStorage.setItem(THEME_KEY, theme)
+  }, [theme])
 
   const question = selectedSet.questions[current]
   const currentAnswer = selectedAnswers[current]
@@ -191,13 +197,20 @@ function App() {
   const resultTone = percent >= 80 ? 'good' : percent >= 60 ? 'okay' : 'low'
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell theme-${theme}`}>
       <header className="topbar">
         <a className="brand" href="#top" aria-label="Part 5 Studio home">
           <span className="brand-mark">TR</span>
           <span><strong>TOEIC Reading</strong><small>PRACTICE STUDIO</small></span>
         </a>
-        <div className="topbar-note"><span className="status-dot" /> Tiến độ được lưu tự động</div>
+        <div className="header-actions">
+          <div className="theme-switcher" aria-label="Chọn giao diện">
+            <button className={theme === 'cute' ? 'active' : ''} onClick={() => setTheme('cute')} aria-label="Cute mode">Cute</button>
+            <button className={theme === 'manly' ? 'active' : ''} onClick={() => setTheme('manly')} aria-label="Manly mode">Manly</button>
+            <button className={theme === 'dark' ? 'active' : ''} onClick={() => setTheme('dark')} aria-label="Dark mode">Dark</button>
+          </div>
+          <div className="topbar-note"><span className="status-dot" /> Tiến độ được lưu tự động</div>
+        </div>
       </header>
 
       <main id="top" className="content-wrap">
