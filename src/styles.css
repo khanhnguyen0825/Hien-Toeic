@@ -243,6 +243,74 @@ body, button { font-family: 'Be Vietnam Pro', sans-serif; }
 .theme-dark .quick-scope-mark { border-color: #96677b; }
 .theme-dark .quick-result { border-color: #624650; background: #30262c; }
 .theme-dark .result-panel { border-color: #674957; background: #30262c; }
+.theme-dark .option.correct-option { border-color: #68c49a; color: #b9f1d0; background: #1f4a3a; box-shadow: 0 0 0 1px rgba(104,196,154,.18); }
+.theme-dark .option.wrong-option { border-color: #e58a92; color: #ffd0d3; background: #542d34; box-shadow: 0 0 0 1px rgba(229,138,146,.18); }
+.theme-dark .quick-result.is-wrong { border-color: #a85f69; background: #40282e; }
+.theme-dark .quick-result.is-correct { border-color: #579d7e; background: #263f35; }
+
+/* High-contrast answer states shared by every theme. */
+.option.active { border-color: #a56b86; color: #f7e8ee; background: #3a2933; }
+.option.active .option-letter { color: #3a2933; background: #f0bfd0; }
+.option.correct-option { border-color: #68c49a; color: #b9f1d0; background: #1f4a3a; box-shadow: 0 0 0 1px rgba(104,196,154,.18); }
+.option.correct-option .option-letter { color: #1f4a3a; background: #9be0bb; }
+.option.wrong-option { border-color: #e58a92; color: #ffd0d3; background: #542d34; box-shadow: 0 0 0 1px rgba(229,138,146,.18); }
+.option.wrong-option .option-letter { color: #542d34; background: #f2aeb4; }
+
+.review-item.correct { border-color: #b9d9c5; background: #fbfefc; }
+.review-item.incorrect { border-color: #e7c2c6; background: #fffafb; }
+.review-item.correct:hover { border-color: #98c6aa; }
+.review-item.incorrect:hover { border-color: #d9a2aa; }
+.theme-dark .review-item.correct { border-color: #548b6d; background: #263a30; }
+.theme-dark .review-item.incorrect { border-color: #945b64; background: #3a292e; }
+.theme-dark .review-item.correct:hover { border-color: #72b58f; }
+.theme-dark .review-item.incorrect:hover { border-color: #c27a84; }
+.review-item.correct { border-color: #94cbaa; }
+.review-item.incorrect { border-color: #dfa3ad; }
+.review-item.correct .review-status { color: #4f936e; font-size: 13px; font-weight: 600; }
+.review-item.incorrect .review-status { color: #c35f6c; font-size: 13px; font-weight: 600; }
+.theme-dark .review-item.correct { border-color: #69aa85; }
+.theme-dark .review-item.incorrect { border-color: #c87883; }
+.theme-dark .review-item.correct .review-status { color: #9bd8b2; }
+.theme-dark .review-item.incorrect .review-status { color: #f0aab2; }
+.text-button { padding: 8px 13px; border: 1px solid #d9b6c1; border-radius: 8px; color: var(--green-dark); background: var(--soft-green); font-size: 13px; font-weight: 600; text-decoration: none; }
+.text-button:hover { border-color: var(--green); background: #f1dfe5; }
+.theme-dark .text-button { border-color: #96677b; color: #f0bfd0; background: #3a2933; }
+.theme-dark .text-button:hover { border-color: #c989a2; background: #4b303d; }
+.result-score { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+.result-score span { font-size: 72px; line-height: .9; }
+.result-score small { margin-top: 0; padding: 5px 8px; border-radius: 6px; color: var(--green-dark); background: rgba(255,255,255,.58); font-size: 12px; }
+.theme-dark .result-score small { color: #f0bfd0; background: rgba(255,255,255,.08); }
+
+.result-badge { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 10px; padding: 5px 9px; border: 1px solid currentColor; border-radius: 999px; font: 600 10px 'DM Mono'; letter-spacing: .08em; }
+.result-badge i { font-size: 14px; font-style: normal; line-height: .8; }
+.result-panel.good { border-color: #e0b2c2; background: linear-gradient(120deg, #fff5f8, #f9edf2); }
+.good .result-badge { color: #b76786; background: #fffafd; }
+.result-panel.okay { border-color: #d9cda4; background: linear-gradient(120deg, #faf8ef, #f7f1df); }
+.okay .result-badge { color: #94803e; background: #fffdf5; }
+.result-panel.improving { border-color: #b8d2c0; background: linear-gradient(120deg, #f4faf5, #eaf4ed); }
+.improving .result-badge { color: #5d9370; background: #fbfffc; }
+.result-panel.low { border-color: #e2b5b5; background: linear-gradient(120deg, #fff6f5, #fcedeb); }
+.low .result-badge { color: #b56a6c; background: #fffafa; }
+.result-panel.starting { border-color: #cfc1d8; background: linear-gradient(120deg, #f8f5fb, #eee8f3); }
+.starting .result-badge { color: #80658f; background: #fcfaff; }
+.theme-dark .result-panel.good, .theme-dark .result-panel.okay, .theme-dark .result-panel.improving, .theme-dark .result-panel.low, .theme-dark .result-panel.starting { background: #30262c; }
+.theme-dark .good .result-badge, .theme-dark .okay .result-badge, .theme-dark .improving .result-badge, .theme-dark .low .result-badge, .theme-dark .starting .result-badge { background: rgba(255,255,255,.06); }
+.result-badge .result-icon { position: relative; display: inline-block; width: 14px; height: 14px; font-size: 0; line-height: 1; }
+.result-icon-good { background: currentColor; clip-path: polygon(50% 0, 61% 35%, 100% 35%, 70% 57%, 81% 100%, 50% 74%, 19% 100%, 30% 57%, 0 35%, 39% 35%); }
+.result-icon-okay { border: 2px solid currentColor; border-radius: 50%; }
+.result-icon-improving { border-bottom: 2px solid currentColor; }
+.result-icon-improving::before, .result-icon-improving::after { position: absolute; bottom: 0; width: 3px; border-radius: 2px 2px 0 0; background: currentColor; content: ''; }
+.result-icon-improving::before { left: 2px; height: 7px; }
+.result-icon-improving::after { right: 2px; height: 12px; }
+.result-icon-low { border: 2px solid currentColor; border-radius: 50%; }
+.result-icon-low::after { position: absolute; left: 5px; top: 2px; width: 2px; height: 6px; border-radius: 2px; background: currentColor; content: ''; }
+.result-icon-starting { width: 9px !important; height: 9px !important; margin: 2px; border-radius: 50%; background: currentColor; }
+
+@media (max-width: 760px) {
+  .result-score { gap: 7px; }
+  .result-score span { font-size: 58px; }
+  .result-score small { font-size: 10px; }
+}
 
 .result-panel.improving { border-color: #d8d4b3; background: #f8f7e9; }
 .result-panel.starting { border-color: #e3c7d0; background: #f9eef1; }
