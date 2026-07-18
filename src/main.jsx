@@ -237,18 +237,30 @@ function App() {
           <div className="hero-stamp"><span>30</span><small>CÂU / ĐỀ</small></div>
         </section>
 
-        <section className="set-picker" aria-label="Chọn đề luyện tập">
-          <div className="section-heading"><div><p className="eyebrow">KHO BÀI TẬP</p><h2>Chọn một đề để bắt đầu</h2></div><span className="count-label">{sets.length} đề có sẵn</span></div>
-          <div className="set-grid">
-            {stats.map((set, index) => (
-              <button className={`set-card ${set.id === selectedSetId ? 'selected' : ''} ${set.color}`} key={set.id} onClick={() => chooseSet(set.id)}>
-                <span className="set-number">0{index + 1}</span>
-                <span className="set-card-main"><strong>{set.title}</strong><small>{set.label}</small></span>
-                <span className="set-card-meta">{set.done ? `${set.correct}/${set.questions.length}` : `${set.questions.length} câu`}<b>→</b></span>
-              </button>
-            ))}
+        <section className="mode-picker" aria-label="Chọn chế độ học">
+          <div className="section-heading"><div><p className="eyebrow">BƯỚC 01 · CÁCH HỌC</p><h2>Chọn chế độ trước khi bắt đầu</h2></div><span className="count-label">2 chế độ</span></div>
+          <div className="mode-switch" role="tablist" aria-label="Chọn chế độ học">
+            <button className={mode === 'full' ? 'active' : ''} onClick={() => chooseMode('full')} role="tab" aria-selected={mode === 'full'}><span>01</span><strong>Làm trọn đề</strong><small>Hoàn thành 30 câu và xem điểm</small></button>
+            <button className={mode === 'quick' ? 'active' : ''} onClick={() => chooseMode('quick')} role="tab" aria-selected={mode === 'quick'}><span>02</span><strong>Luyện nhanh</strong><small>Random toàn bộ 3 đề · check ngay</small></button>
           </div>
         </section>
+
+        {mode === 'full' ? (
+          <section className="set-picker" aria-label="Chọn đề luyện tập">
+            <div className="section-heading"><div><p className="eyebrow">BƯỚC 02 · KHO BÀI TẬP</p><h2>Chọn một đề để bắt đầu</h2></div><span className="count-label">{sets.length} đề có sẵn</span></div>
+            <div className="set-grid">
+              {stats.map((set, index) => (
+                <button className={`set-card ${set.id === selectedSetId ? 'selected' : ''} ${set.color}`} key={set.id} onClick={() => chooseSet(set.id)}>
+                  <span className="set-number">0{index + 1}</span>
+                  <span className="set-card-main"><strong>{set.title}</strong><small>{set.label}</small></span>
+                  <span className="set-card-meta">{set.done ? `${set.correct}/${set.questions.length}` : `${set.questions.length} câu`}<b>→</b></span>
+                </button>
+              ))}
+            </div>
+          </section>
+        ) : (
+          <section className="quick-scope" aria-label="Phạm vi luyện nhanh"><span className="quick-scope-mark">◎</span><div><p className="eyebrow">BƯỚC 02 · PHẠM VI LUYỆN</p><h2>Toàn bộ {sets.length} đề · {quickQuestions.length} câu hỏi</h2><p>Mỗi lượt sẽ lấy một câu bất kỳ từ tất cả các đề để bạn luyện thật nhanh.</p></div><span className="quick-scope-arrow">↓</span></section>
+        )}
 
         <section className="workspace" aria-label="Khu vực làm bài">
           <div className="workspace-head">
@@ -256,14 +268,9 @@ function App() {
             <div className="workspace-actions">{mode === 'full' && isSubmitted && <button className="text-button" onClick={resetSet}>Làm lại đề</button>}{mode === 'full' ? <span className="question-counter">{String(current + 1).padStart(2, '0')} <i>/</i> {String(selectedSet.questions.length).padStart(2, '0')}</span> : <span className="question-counter">{quickAttempts} câu đã check</span>}</div>
           </div>
 
-          <div className="mode-switch" role="tablist" aria-label="Chọn chế độ học">
-            <button className={mode === 'full' ? 'active' : ''} onClick={() => chooseMode('full')} role="tab" aria-selected={mode === 'full'}><span>01</span><strong>Làm trọn đề</strong><small>Hoàn thành 30 câu và xem điểm</small></button>
-            <button className={mode === 'quick' ? 'active' : ''} onClick={() => chooseMode('quick')} role="tab" aria-selected={mode === 'quick'}><span>02</span><strong>Luyện nhanh</strong><small>Câu ngẫu nhiên · check ngay</small></button>
-          </div>
-
           {mode === 'quick' ? (
             <div className="quick-mode">
-              <div className="quick-meta"><span>CÂU NGẪU NHIÊN · {quickQuestion.set.title.toUpperCase()}</span><span>{quickQuestion.index + 101} trong kho câu hỏi</span></div>
+              <div className="quick-meta"><span>CÂU NGẪU NHIÊN · TOÀN BỘ 3 ĐỀ</span><span>{quickQuestion.set.title} · Câu {quickQuestion.index + 101}</span></div>
               <div className="question-card quick-card">
                 <div className="question-label"><span>LUYỆN NHANH</span><span className="question-type">Từ vựng & ngữ pháp</span></div>
                 <p className="question-text">{quickQuestion.question[0]}</p>
