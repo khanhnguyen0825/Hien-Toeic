@@ -194,7 +194,7 @@ function App() {
     setQuickChecked(false)
   }
 
-  const resultTone = percent >= 80 ? 'good' : percent >= 60 ? 'okay' : 'low'
+  const resultTone = percent >= 80 ? 'good' : percent >= 65 ? 'okay' : percent >= 50 ? 'improving' : percent >= 30 ? 'low' : 'starting'
 
   return (
     <div className={`app-shell theme-${theme}`}>
@@ -217,7 +217,7 @@ function App() {
         <section className="hero">
           <div>
             <p className="eyebrow">READING · {activePart.label.toUpperCase()}</p>
-            <h1>Luyện tập nhỏ,<br /><em>tiến bộ lớn.</em></h1>
+            <h1>Có cái Toeic rách thôi,<br /><em>không phải xợ.</em></h1>
             <p className="hero-copy">Chinh phục những câu hỏi hoàn thành câu TOEIC theo nhịp học của riêng bạn.</p>
           </div>
           <div className="hero-stamp"><span>{questionCount}</span><small>CÂU / ĐỀ</small></div>
@@ -279,9 +279,9 @@ function App() {
               </div>
             </div>
           ) : isSubmitted ? (
-            <div className={`result-panel ${resultTone}`}>
-              <div className="result-score"><span>{score}</span><small>/ {selectedSet.questions.length} câu đúng</small></div>
-              <div className="result-message"><p className="eyebrow">HOÀN THÀNH ĐỀ</p><h3>{percent >= 80 ? 'Rất tốt, giữ vững phong độ.' : percent >= 60 ? 'Khá tốt, hãy luyện thêm một chút.' : 'Đừng vội nản, mình làm lại nhé.'}</h3><p>Đáp án đã được chấm. Bạn có thể xem lại từng câu bên dưới.</p></div>
+              <div className={`result-panel ${resultTone}`}>
+               <div className="result-score"><span>{score}</span><small>/ {selectedSet.questions.length} câu đúng</small></div>
+               <div className="result-message"><p className="eyebrow">HOÀN THÀNH ĐỀ</p><h3>{percent >= 80 ? 'Rất tốt, giữ vững phong độ.' : percent >= 65 ? 'Khá tốt, hãy luyện thêm một chút.' : percent >= 50 ? 'Đang tiến bộ, tiếp tục luyện nhé.' : percent >= 30 ? 'Cần luyện thêm, đừng bỏ cuộc.' : 'Hãy xây lại nền tảng từ những câu cơ bản.'}</h3><p>Đáp án đã được chấm. Bạn có thể xem lại từng câu bên dưới.</p></div>
               <div className="result-percent">{percent}%</div>
             </div>
           ) : (
