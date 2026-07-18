@@ -47,6 +47,19 @@ button:disabled { cursor: not-allowed; opacity: .45; }
  .quick-actions { max-width: 670px; margin-top: 28px; display: flex; justify-content: space-between; align-items: center; }
  .quick-actions .submit-button { min-width: 145px; }
  .mode-picker { padding: 62px 0 14px; }
+ .part-picker { padding: 52px 0 0; }
+ .part-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px; }
+ .part-card { min-height: 104px; padding: 17px; border: 1px solid var(--line); display: grid; grid-template-columns: 56px 1fr; grid-template-rows: 1fr auto; column-gap: 13px; text-align: left; color: var(--ink); background: #fff; }
+ .part-card:not(:disabled):hover { border-color: #94c5b6; transform: translateY(-2px); }
+ .part-card.active { border: 2px solid var(--green); padding: 16px; background: var(--soft-green); }
+ .part-card-label { grid-row: 1 / span 2; align-self: center; color: var(--green); font: 700 17px 'Be Vietnam Pro', sans-serif; }
+ .part-card-copy strong, .part-card-copy small { display: block; }
+ .part-card-copy strong { font-size: 14px; }
+ .part-card-copy small { margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.4; }
+ .part-card-status { grid-column: 2; align-self: end; margin-top: 10px; color: var(--green); font: 10px 'DM Mono'; }
+ .part-card.coming-soon { color: #9ba6a6; background: #f8faf9; }
+ .part-card.coming-soon .part-card-label, .part-card.coming-soon .part-card-status { color: #aeb9b7; }
+ .part-card.coming-soon .part-card-status { text-transform: uppercase; }
  .mode-picker .mode-switch { margin-top: 22px; }
  .quick-scope { min-height: 126px; margin: 30px 0 54px; padding: 25px 28px; border: 1px solid #c6e2d7; display: flex; align-items: center; gap: 18px; background: #edf8f3; }
  .quick-scope-mark { width: 43px; height: 43px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #94cbb8; border-radius: 50%; color: var(--green); font-size: 24px; }
@@ -85,6 +98,11 @@ body, button { font-family: 'Be Vietnam Pro', sans-serif; }
 .quick-result small { font-size: 12px; }
 
 @media (max-width: 760px) {
+  .part-picker { padding-top: 40px; }
+  .part-grid { grid-template-columns: 1fr; }
+  .part-card { min-height: 78px; grid-template-columns: 52px 1fr auto; grid-template-rows: 1fr; align-items: center; }
+  .part-card-label { grid-row: auto; }
+  .part-card-status { grid-column: auto; grid-row: auto; margin-top: 0; }
   .mode-picker { padding: 45px 0 4px; }
   .quick-scope { margin: 28px 0 38px; padding: 20px 17px; align-items: flex-start; }
   .quick-scope h2 { font-size: 18px; line-height: 1.35; }
