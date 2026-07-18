@@ -17,7 +17,7 @@ export function Header({ theme, onThemeChange }) {
 
 export function Hero({ activePart, questionCount }) {
   return <section className="hero">
-    <div><p className="eyebrow">READING · {activePart.label.toUpperCase()}</p><h1>Luyện tập nhỏ,<br /><em>tiến bộ lớn.</em></h1><p className="hero-copy">Chinh phục những câu hỏi hoàn thành câu TOEIC theo nhịp học của riêng bạn.</p></div>
+    <div><p className="eyebrow">READING · {activePart.label.toUpperCase()}</p><h1> Mấy cái Toeic jack,<br /><em>không phải xợ.</em></h1><p className="hero-copy">Phải thi cho thậc víp.</p></div>
     <div className="hero-stamp"><span>{questionCount}</span><small>CÂU / ĐỀ</small></div>
   </section>
 }
