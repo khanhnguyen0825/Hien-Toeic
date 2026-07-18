@@ -74,7 +74,7 @@ export function QuickQuizView({ activePart, quickQuestion, quickPassage, quickAn
 }
 
 export function ResultPanel({ score, questionCount, percent, resultTone }) {
-  return <div className={`result-panel ${resultTone}`}><div className="result-score"><span>{score}</span><small>/ {questionCount} câu đúng</small></div><div className="result-message"><p className="eyebrow">HOÀN THÀNH ĐỀ</p><h3>{percent >= 80 ? 'Rất tốt, giữ vững phong độ.' : percent >= 65 ? 'Khá tốt, hãy luyện thêm một chút.' : percent >= 50 ? 'Đang tiến bộ, tiếp tục luyện nhé.' : percent >= 30 ? 'Cần luyện thêm, đừng bỏ cuộc.' : 'Hãy xây lại nền tảng từ những câu cơ bản.'}</h3><p>Đáp án đã được chấm. Bạn có thể xem lại từng câu bên dưới.</p></div><div className="result-percent">{percent}%</div></div>
+  return <div className={`result-panel ${resultTone}`}><div className="result-score"><span>{score}</span><small>/ {questionCount} câu đúng</small></div><div className="result-message"><p className="eyebrow">HOÀN THÀNH ĐỀ</p><h3>{percent >= 80 ? 'Ái chè chè, giỏi thí nhỉ.' : percent >= 65 ? 'Cũng ngon ngon đoá.' : percent >= 50 ? 'Cùi mía z, chưa tày âu.' : percent >= 30 ? 'Èo ôi seo kém quá z.' : 'Hu hu như này mà đi thi thì chít.'}</h3><p>Đáp án đã được chấm. Bạn có thể xem lại từng câu bên dưới.</p></div><div className="result-percent">{percent}%</div></div>
 }
 
 export function FullQuizView({ activePart, question, current, currentPassage, currentPassageIndex, passageGroups, selectedSet, selectedAnswers, currentAnswer, answeredCount, isSubmitted, score, percent, resultTone, onAnswer, onAnswerAt, onCurrentChange, onSubmit }) {
