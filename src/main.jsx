@@ -59,13 +59,6 @@ function App() {
   function chooseAnswerAt(questionIndex, optionIndex) { if (isSubmitted) return; setAnswers((previous) => ({ ...previous, [setKey]: { ...(previous[setKey] || {}), [questionIndex]: optionIndex } })) }
   function submitSet() { setSubmitted((previous) => ({ ...previous, [setKey]: true })); setCurrent(0) }
   function resetSet() { setAnswers((previous) => ({ ...previous, [setKey]: {} })); setSubmitted((previous) => ({ ...previous, [setKey]: false })); setCurrent(0) }
-  function simulateResult(correctCount) {
-    const answersForDemo = Object.fromEntries(selectedSet.questions.map((item, index) => [index, index < correctCount ? item.answer : (item.answer + 1) % item.options.length]))
-    setMode('full')
-    setAnswers((previous) => ({ ...previous, [setKey]: answersForDemo }))
-    setSubmitted((previous) => ({ ...previous, [setKey]: true }))
-    setCurrent(0)
-  }
   function chooseQuickAnswer(questionId, optionIndex) { if (!quickChecked) setQuickAnswers((previous) => ({ ...previous, [questionId]: optionIndex })) }
   function checkQuickAnswer() { if (!quickReady) return; setQuickChecked(true); setQuickAttempts((value) => value + 1) }
   function nextQuickQuestion() { if (activePart.id === 'part-6') { setQuickPassage((previous) => getRandomPassage(quickPassagePool, previous)); setQuickAnswers({}); setQuickChecked(false); return } setQuickQuestion((previous) => getRandomQuestion(quickPool, previous)); setQuickAnswer(null); setQuickChecked(false) }
@@ -79,7 +72,7 @@ function App() {
   const question = selectedSet.questions[current]
 
   return <div className={`app-shell theme-${theme}`}>
-    <Header theme={theme} onThemeChange={setTheme} onSimulateResult={simulateResult} />
+    <Header theme={theme} onThemeChange={setTheme} />
     <main id="top" className="content-wrap">
       <Hero activePart={activePart} questionCount={questionCount} />
       <PartPicker parts={readingParts} selectedPartId={selectedPartId} onChoose={choosePart} />

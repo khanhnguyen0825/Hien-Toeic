@@ -5,7 +5,7 @@ function PerfectCelebration() {
   return <FireworksCanvas duration={3000} />
 }
 
-export function Header({ theme, onThemeChange, onSimulateResult }) {
+export function Header({ theme, onThemeChange }) {
   return <header className="topbar">
     <a className="brand" href="#top" aria-label="Part 5 Studio home">
       <span className="brand-mark">TR</span>
@@ -15,7 +15,6 @@ export function Header({ theme, onThemeChange, onSimulateResult }) {
       <div className="theme-switcher" aria-label="Chọn giao diện">
         {['cute', 'manly', 'dark'].map((item) => <button className={theme === item ? 'active' : ''} onClick={() => onThemeChange(item)} aria-label={`${item[0].toUpperCase()}${item.slice(1)} mode`} key={item}>{item[0].toUpperCase() + item.slice(1)}</button>)}
       </div>
-      <label className="result-demo"><span>DEMO</span><select defaultValue="" aria-label="Giả lập kết quả" onChange={(event) => event.target.value && onSimulateResult(Number(event.target.value))}><option value="">Test điểm</option><option value="30">30/30</option><option value="25">25/30</option><option value="18">18/30</option><option value="10">10/30</option><option value="0">0/30</option></select></label>
       <div className="topbar-note"><span className="status-dot" /> Tiến độ được lưu tự động</div>
     </div>
   </header>
