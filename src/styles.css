@@ -276,6 +276,10 @@ body, button { font-family: 'Be Vietnam Pro', sans-serif; }
 .text-button:hover { border-color: var(--green); background: #f1dfe5; }
 .theme-dark .text-button { border-color: #96677b; color: #f0bfd0; background: #3a2933; }
 .theme-dark .text-button:hover { border-color: #c989a2; background: #4b303d; }
+.result-demo { display: flex; align-items: center; gap: 6px; color: var(--muted); font: 9px 'DM Mono'; }
+.result-demo select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 7px; color: var(--green-dark); background: var(--soft-green); font: 10px 'DM Mono'; cursor: pointer; }
+.result-demo select:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.theme-dark .result-demo select { border-color: #96677b; color: #f0bfd0; background: #3a2933; }
 .result-score { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
 .result-score span { font-size: 72px; line-height: .9; }
 .result-score small { margin-top: 0; padding: 5px 8px; border-radius: 6px; color: var(--green-dark); background: rgba(255,255,255,.58); font-size: 12px; }
@@ -293,8 +297,11 @@ body, button { font-family: 'Be Vietnam Pro', sans-serif; }
 .low .result-badge { color: #b56a6c; background: #fffafa; }
 .result-panel.starting { border-color: #cfc1d8; background: linear-gradient(120deg, #f8f5fb, #eee8f3); }
 .starting .result-badge { color: #80658f; background: #fcfaff; }
+.result-panel.perfect { border-color: #d7b36e; background: linear-gradient(120deg, #fffaf0, #fff2d7); }
+.perfect .result-badge { color: #a87d2c; background: #fffdf7; }
 .theme-dark .result-panel.good, .theme-dark .result-panel.okay, .theme-dark .result-panel.improving, .theme-dark .result-panel.low, .theme-dark .result-panel.starting { background: #30262c; }
-.theme-dark .good .result-badge, .theme-dark .okay .result-badge, .theme-dark .improving .result-badge, .theme-dark .low .result-badge, .theme-dark .starting .result-badge { background: rgba(255,255,255,.06); }
+.theme-dark .result-panel.perfect { border-color: #a68448; background: #3a3021; }
+.theme-dark .good .result-badge, .theme-dark .okay .result-badge, .theme-dark .improving .result-badge, .theme-dark .low .result-badge, .theme-dark .starting .result-badge, .theme-dark .perfect .result-badge { background: rgba(255,255,255,.06); }
 .result-badge .result-icon { position: relative; display: inline-block; width: 14px; height: 14px; font-size: 0; line-height: 1; }
 .result-icon-good { background: currentColor; clip-path: polygon(50% 0, 61% 35%, 100% 35%, 70% 57%, 81% 100%, 50% 74%, 19% 100%, 30% 57%, 0 35%, 39% 35%); }
 .result-icon-okay { border: 2px solid currentColor; border-radius: 50%; }
@@ -305,11 +312,19 @@ body, button { font-family: 'Be Vietnam Pro', sans-serif; }
 .result-icon-low { border: 2px solid currentColor; border-radius: 50%; }
 .result-icon-low::after { position: absolute; left: 5px; top: 2px; width: 2px; height: 6px; border-radius: 2px; background: currentColor; content: ''; }
 .result-icon-starting { width: 9px !important; height: 9px !important; margin: 2px; border-radius: 50%; background: currentColor; }
+.result-icon-perfect { border: 2px solid currentColor; border-radius: 50%; }
+.result-icon-perfect::after { position: absolute; left: 3px; top: 2px; width: 5px; height: 3px; border-bottom: 2px solid currentColor; border-left: 2px solid currentColor; content: ''; transform: rotate(-45deg); }
+
+.fireworks-canvas { position: fixed; inset: 0; z-index: 40; width: 100vw; height: 100vh; pointer-events: none; background: rgba(35,20,29,.12); animation: fireworks-canvas-in 400ms ease-out both; }
+.theme-dark .fireworks-canvas { background: rgba(4,3,7,.18); }
+@keyframes fireworks-canvas-in { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 760px) {
   .result-score { gap: 7px; }
   .result-score span { font-size: 58px; }
   .result-score small { font-size: 10px; }
+  .result-demo span { display: none; }
+  .result-demo select { padding: 4px 5px; font-size: 9px; }
 }
 
 .result-panel.improving { border-color: #d8d4b3; background: #f8f7e9; }
