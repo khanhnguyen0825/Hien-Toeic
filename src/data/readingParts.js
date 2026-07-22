@@ -1,5 +1,6 @@
 import { part5Sets } from './part5Sets'
 import { part6Sets } from './part6Sets'
+import { part7Sets } from './part7Sets'
 
 // Reading part registry. Add each new part's data here when it becomes available.
 export const readingParts = [
@@ -23,8 +24,8 @@ export const readingParts = [
     id: 'part-7',
     label: 'Part 7',
     title: 'Reading Comprehension',
-    description: 'Đọc hiểu văn bản đơn và đa văn bản.',
-    available: false,
-    sets: [],
+    description: 'Luyện câu hỏi đọc hiểu theo số câu, không hiển thị bài đọc.',
+    available: true,
+    sets: part7Sets,
   },
 ]

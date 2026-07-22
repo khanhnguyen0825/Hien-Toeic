@@ -313,6 +313,18 @@ body, button { font-family: 'Be Vietnam Pro', sans-serif; }
 
 .fireworks-canvas { position: fixed; inset: 0; z-index: 40; width: 100vw; height: 100vh; pointer-events: none; background: rgba(35,20,29,.12); animation: fireworks-canvas-in 400ms ease-out both; }
 .theme-dark .fireworks-canvas { background: rgba(4,3,7,.18); }
+.part7-question-list { max-width: 820px; }
+.part7-question { padding: 22px 0 26px; border-bottom: 1px solid var(--line); }
+.part7-question:first-child { padding-top: 8px; }
+.part7-question:last-child { border-bottom: 0; }
+.part7-question-heading { display: flex; justify-content: space-between; color: var(--green); font: 600 12px 'DM Mono'; letter-spacing: .06em; }
+.part7-question-heading span:last-child { color: var(--muted); font-weight: 400; }
+.part7-question .question-text { margin: 14px 0 18px; max-width: 760px; font-size: clamp(19px, 2vw, 25px); }
+.theme-dark .part7-question { border-bottom-color: var(--line); }
+@media (max-width: 760px) {
+  .part7-question { padding: 18px 0 22px; }
+  .part7-question .question-text { font-size: 20px; }
+}
 @keyframes fireworks-canvas-in { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 760px) {
@@ -356,3 +368,33 @@ body, button { font-family: 'Be Vietnam Pro', sans-serif; }
   .theme-switcher button { padding: 4px 7px; font-size: 9px; }
   .topbar-note { font-size: 8px; }
 }
+/* Passage/group colors remain visible behind the existing current and answered states. */
+.map-grid button.map-group-0 { border-color: #e7c4c4; background: #fff1f0; }
+.map-grid button.map-group-1 { border-color: #c7dfd1; background: #effaf3; }
+.map-grid button.map-group-2 { border-color: #c8d9eb; background: #f0f6fd; }
+.map-grid button.map-group-3 { border-color: #e4d2ad; background: #fff8e8; }
+.map-grid button.map-group-4 { border-color: #d8c9e6; background: #f8f2fc; }
+.map-grid button.map-group-5 { border-color: #c6dfe1; background: #eefafb; }
+.map-grid button.current { border-color: var(--green); color: white; background: var(--green); }
+.map-grid button.answered:not(.current) { border-color: #b5d9cc; color: var(--green); background: var(--soft-green); }
+.theme-dark .map-grid button.map-group-0 { border-color: #805b61; background: #3d292d; }
+.theme-dark .map-grid button.map-group-1 { border-color: #527a69; background: #293b34; }
+.theme-dark .map-grid button.map-group-2 { border-color: #536d88; background: #293440; }
+.theme-dark .map-grid button.map-group-3 { border-color: #806d4c; background: #3d3525; }
+.theme-dark .map-grid button.map-group-4 { border-color: #735c82; background: #382d3d; }
+.theme-dark .map-grid button.map-group-5 { border-color: #4e777b; background: #293a3c; }
+.map-grid button { display: grid; place-items: center; padding: 0; line-height: 1; font-weight: 600; }
+.map-grid button.map-group-0:not(.current) { border-color: #e09ba2; color: #b65762; background: #fff0f1; }
+.map-grid button.map-group-1:not(.current) { border-color: #8fc5a5; color: #4c9167; background: #edf9f1; }
+.map-grid button.map-group-2:not(.current) { border-color: #91b6d8; color: #4f80aa; background: #eef5fc; }
+.map-grid button.map-group-3:not(.current) { border-color: #d7b66e; color: #9c7c2f; background: #fff8e6; }
+.map-grid button.map-group-4:not(.current) { border-color: #b59aca; color: #795796; background: #f7f0fc; }
+.map-grid button.map-group-5:not(.current) { border-color: #8ebfc2; color: #4d8e94; background: #edf9fa; }
+.theme-dark .map-grid button.map-group-0:not(.current) { border-color: #c87883; color: #f0aab2; background: #3a292e; }
+.theme-dark .map-grid button.map-group-1:not(.current) { border-color: #69aa85; color: #9bd8b2; background: #263a30; }
+.theme-dark .map-grid button.map-group-2:not(.current) { border-color: #749fc5; color: #afd2ef; background: #293440; }
+.theme-dark .map-grid button.map-group-3:not(.current) { border-color: #b79a5e; color: #e7cf91; background: #3d3525; }
+.theme-dark .map-grid button.map-group-4:not(.current) { border-color: #9a78b0; color: #d0b8e4; background: #382d3d; }
+.theme-dark .map-grid button.map-group-5:not(.current) { border-color: #6eaeb1; color: #a8dadd; background: #293a3c; }
+.theme-dark .map-grid button.current { border-color: var(--green); color: #241c21; background: var(--green); }
+.theme-dark .map-grid button.answered:not(.current) { border-color: #80566a; color: var(--green); background: var(--soft-green); }
